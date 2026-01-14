@@ -5,7 +5,13 @@ import {
   CheckCircle2, 
   Leaf, 
   ArrowRight,
-  Recycle
+  Recycle,
+  ShoppingBag,
+  Sparkles,
+  Utensils,
+  Pill,
+  Store,
+  Package
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
@@ -194,17 +200,18 @@ export default function HomePage() {
               Nosso Portfólio
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mt-4 mb-6">
-              Soluções Completas em Embalagens
+              Setores que Atendemos
             </h2>
             <p className="text-lg text-muted-foreground">
               Do design à entrega, oferecemos uma linha completa de sacolas e embalagens 
-              personalizadas para atender às necessidades específicas da sua marca.
+              personalizadas para atender às necessidades específicas da sua marca. 
+              Trabalhamos com diversos segmentos:
             </p>
           </motion.div>
 
-          {/* Cards */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Card Printmoda */}
+          {/* Sector Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Moda */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -212,35 +219,23 @@ export default function HomePage() {
               transition={{ delay: 0.1 }}
               className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group"
             >
-              <div className="relative h-56 overflow-hidden">
-                <img 
-                  src={cardPrintmoda} 
-                  alt="Linha Printmoda - Sacolas e embalagens para moda"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="relative h-40 overflow-hidden bg-primary/10 flex items-center justify-center">
+                <ShoppingBag className="w-16 h-16 text-primary/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-6">
-                  <h3 className="text-2xl font-heading font-bold text-white">Linha Printmoda</h3>
+                  <h3 className="text-xl font-heading font-bold text-white">Moda</h3>
                 </div>
               </div>
-              <div className="p-6">
-                <p className="text-muted-foreground mb-6">
-                  Soluções elegantes para o mercado da moda e varejo.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    "Sacolas de papel kraft e couché",
-                    "Caixas personalizadas",
-                    "Envelopes e tags",
-                    "Etiquetas e papel de seda"
-                  ].map((item, index) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+              <div className="p-5">
+                <div className="space-y-2 mb-5">
+                  {["Sacolas de papel kraft e couché", "Caixas personalizadas", "Envelopes e tags", "Etiquetas e papel de seda"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-foreground text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
-                <Button variant="cta" size="lg" asChild className="w-full mt-6">
+                <Button variant="cta" size="default" asChild className="w-full">
                   <Link to="/solucoes">
                     Ver Produtos
                     <ArrowRight className="w-4 h-4" />
@@ -249,7 +244,40 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Card PrintFood */}
+            {/* Cosméticos */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group"
+            >
+              <div className="relative h-40 overflow-hidden bg-secondary/10 flex items-center justify-center">
+                <Sparkles className="w-16 h-16 text-secondary/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-6">
+                  <h3 className="text-xl font-heading font-bold text-white">Cosméticos</h3>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="space-y-2 mb-5">
+                  {["Sacolas premium", "Caixas para kits", "Embalagens para presentes", "Tags e etiquetas"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-foreground text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button variant="sustainability" size="default" asChild className="w-full">
+                  <Link to="/solucoes">
+                    Ver Produtos
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Food/Chocolates */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -257,35 +285,122 @@ export default function HomePage() {
               transition={{ delay: 0.2 }}
               className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group"
             >
-              <div className="relative h-56 overflow-hidden">
-                <img 
-                  src={cardPrintfood} 
-                  alt="Linha PrintFood - Embalagens para alimentos"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="relative h-40 overflow-hidden bg-primary/10 flex items-center justify-center">
+                <Utensils className="w-16 h-16 text-primary/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-6">
-                  <h3 className="text-2xl font-heading font-bold text-white">Linha PrintFood</h3>
+                  <h3 className="text-xl font-heading font-bold text-white">Food / Chocolates</h3>
                 </div>
               </div>
-              <div className="p-6">
-                <p className="text-muted-foreground mb-6">
-                  Embalagens seguras e práticas para o setor alimentício.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    "Sacolas e sacos para delivery",
-                    "Caixas para alimentos",
-                    "Guardanapos personalizados",
-                    "Papel de seda e papel barreira"
-                  ].map((item, index) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0" />
+              <div className="p-5">
+                <div className="space-y-2 mb-5">
+                  {["Sacolas para delivery", "Caixas para alimentos", "Papel barreira", "Guardanapos personalizados"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                       <span className="text-foreground text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
-                <Button variant="sustainability" size="lg" asChild className="w-full mt-6">
+                <Button variant="cta" size="default" asChild className="w-full">
+                  <Link to="/solucoes">
+                    Ver Produtos
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Farmácias */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group"
+            >
+              <div className="relative h-40 overflow-hidden bg-secondary/10 flex items-center justify-center">
+                <Pill className="w-16 h-16 text-secondary/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-6">
+                  <h3 className="text-xl font-heading font-bold text-white">Farmácias</h3>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="space-y-2 mb-5">
+                  {["Sacolas de papel", "Sacos para medicamentos", "Caixas para produtos", "Etiquetas personalizadas"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-foreground text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button variant="sustainability" size="default" asChild className="w-full">
+                  <Link to="/solucoes">
+                    Ver Produtos
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Supermercados */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group"
+            >
+              <div className="relative h-40 overflow-hidden bg-primary/10 flex items-center justify-center">
+                <Store className="w-16 h-16 text-primary/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-6">
+                  <h3 className="text-xl font-heading font-bold text-white">Supermercados</h3>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="space-y-2 mb-5">
+                  {["Sacolas reutilizáveis", "Sacos para hortifruti", "Embalagens promocionais", "Sacolas kraft"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button variant="cta" size="default" asChild className="w-full">
+                  <Link to="/solucoes">
+                    Ver Produtos
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Outros */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group"
+            >
+              <div className="relative h-40 overflow-hidden bg-secondary/10 flex items-center justify-center">
+                <Package className="w-16 h-16 text-secondary/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-6">
+                  <h3 className="text-xl font-heading font-bold text-white">Outros</h3>
+                </div>
+              </div>
+              <div className="p-5">
+                <div className="space-y-2 mb-5">
+                  {["Soluções personalizadas", "Projetos especiais", "Embalagens sob medida", "Consultoria especializada"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                      <span className="text-foreground text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button variant="sustainability" size="default" asChild className="w-full">
                   <Link to="/solucoes">
                     Ver Produtos
                     <ArrowRight className="w-4 h-4" />
