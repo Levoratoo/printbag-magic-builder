@@ -32,32 +32,38 @@ import sectorSupermercados from "@/assets/sector-supermercados.jpg";
 import sectorFood from "@/assets/sector-food.jpg";
 
 // Client logos - Alphabetical order
+import logoAramis from "@/assets/clients/aramis.png";
+import logoArezzo from "@/assets/clients/arezzo.png";
 import logoCarolinaHerrera from "@/assets/clients/carolina-herrera.png";
 import logoClaro from "@/assets/clients/claro.png";
+import logoConstance from "@/assets/clients/constance.png";
 import logoDemocrata from "@/assets/clients/democrata.png";
+import logoGrendene from "@/assets/clients/grendene.png";
 import logoLacoste from "@/assets/clients/lacoste.png";
-import logoLive from "@/assets/clients/live.png";
 import logoMadero from "@/assets/clients/madero.png";
+import logoMaryKay from "@/assets/clients/mary-kay.png";
 import logoMelissa from "@/assets/clients/melissa.png";
-import logoPilao from "@/assets/clients/pilao.png";
+import logoMilon from "@/assets/clients/milon.png";
 import logoRaiaDrogasil from "@/assets/clients/raiadrogasil.png";
-import logoRiachuelo from "@/assets/clients/riachuelo.png";
 import logoSubway from "@/assets/clients/subway.png";
-import logoVivo from "@/assets/clients/vivo.png";
+import logoUsaflex from "@/assets/clients/usaflex.png";
 
 const clients = [
+  { name: "Aramis", logo: logoAramis },
+  { name: "Arezzo", logo: logoArezzo },
   { name: "Carolina Herrera", logo: logoCarolinaHerrera },
   { name: "Claro", logo: logoClaro },
+  { name: "Constance", logo: logoConstance },
   { name: "Democrata", logo: logoDemocrata },
+  { name: "Grendene", logo: logoGrendene },
   { name: "Lacoste", logo: logoLacoste },
-  { name: "Live!", logo: logoLive },
   { name: "Madero", logo: logoMadero },
+  { name: "Mary Kay", logo: logoMaryKay },
   { name: "Melissa", logo: logoMelissa },
-  { name: "Pilão", logo: logoPilao },
+  { name: "Milon", logo: logoMilon },
   { name: "RaiaDrogasil", logo: logoRaiaDrogasil },
-  { name: "Riachuelo", logo: logoRiachuelo },
   { name: "Subway", logo: logoSubway },
-  { name: "Vivo", logo: logoVivo },
+  { name: "Usaflex", logo: logoUsaflex },
 ];
 
 const stats = [
@@ -161,16 +167,16 @@ export default function HomePage() {
         
         {/* Infinite Scroll Carousel */}
         <div className="relative">
-          <div className="flex animate-marquee items-center">
+          <div className="flex animate-marquee">
             {[...clients, ...clients, ...clients].map((client, index) => (
               <div
                 key={`${client.name}-${index}`}
-                className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center w-[120px] md:w-[160px] h-[60px] md:h-[80px]"
+                className="flex-shrink-0 mx-8 md:mx-12 grayscale hover:grayscale-0 transition-all duration-300"
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="max-h-[50px] md:max-h-[65px] max-w-[120px] md:max-w-[160px] w-auto h-auto object-contain"
+                  className="h-10 md:h-14 w-auto object-contain"
                 />
               </div>
             ))}
