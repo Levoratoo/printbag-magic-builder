@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { 
-  CheckCircle2, 
   Leaf, 
   ArrowRight,
   Recycle,
@@ -28,6 +27,7 @@ import sectorSuperFarma from "@/assets/sector-supermercados-farmacias.jpg";
 import sectorCosmeticos from "@/assets/sector-cosmeticos.jpg";
 import sectorFoodService from "@/assets/sector-food-service.jpg";
 import sectorJoias from "@/assets/sector-joias.jpg";
+import sectorAtacado from "@/assets/sector-atacado.jpg";
 
 // Client logos - Alphabetical order
 import logoAramis from "@/assets/clients/aramis.png";
@@ -226,14 +226,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <div className="space-y-2 mb-5 flex-grow">
-                  {["Sacolas", "Caixas", "Envelopes", "Papel de Seda", "Etiquetas", "Tags"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-foreground text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
                 <Button variant="cta" size="default" asChild className="w-full mt-auto">
                   <Link to="/solucoes">
                     Ver Produtos
@@ -259,14 +251,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <div className="space-y-2 mb-5 flex-grow">
-                  {["Sacolas", "Sacos", "Caixas"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
-                      <span className="text-foreground text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
                 <Button variant="sustainability" size="default" asChild className="w-full mt-auto">
                   <Link to="/solucoes">
                     Ver Produtos
@@ -292,14 +276,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <div className="space-y-2 mb-5 flex-grow">
-                  {["Sacolas", "Caixas", "Envelopes", "Papel de Seda", "Etiquetas", "Tags"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-foreground text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
                 <Button variant="cta" size="default" asChild className="w-full mt-auto">
                   <Link to="/solucoes">
                     Ver Produtos
@@ -325,14 +301,6 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <div className="space-y-2 mb-5 flex-grow">
-                  {["Sacolas", "Sacos", "Caixas", "Guardanapos", "Papel Barreira"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
-                      <span className="text-foreground text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
                 <Button variant="sustainability" size="default" asChild className="w-full mt-auto">
                   <Link to="/solucoes">
                     Ver Produtos
@@ -358,15 +326,32 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <div className="space-y-2 mb-5 flex-grow">
-                  {["Sacolas", "Caixas", "Envelopes"].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-foreground text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
                 <Button variant="cta" size="default" asChild className="w-full mt-auto">
+                  <Link to="/solucoes">
+                    Ver Produtos
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Atacado/Distribuidores */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className="bg-card rounded-2xl shadow-medium overflow-hidden border border-border hover:shadow-strong transition-shadow duration-300 group flex flex-col"
+            >
+              <div className="relative h-40 overflow-hidden">
+                <img src={sectorAtacado} alt="Embalagens Atacado e Distribuidores" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-6">
+                  <h3 className="text-xl font-heading font-bold text-white">Atacado/Distribuidores</h3>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-grow">
+                <Button variant="sustainability" size="default" asChild className="w-full mt-auto">
                   <Link to="/solucoes">
                     Ver Produtos
                     <ArrowRight className="w-4 h-4" />
