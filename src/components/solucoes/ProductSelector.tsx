@@ -1108,7 +1108,7 @@ export function ProductSelector() {
     }
 
     return items;
-  }, [selection, currentProducts, isFoodService]);
+  }, [selection]);
 
   // Submit to contact page
   const handleSubmit = useCallback(() => {
