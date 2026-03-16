@@ -824,13 +824,8 @@ export function ProductSelector() {
 
   const handleSacoMaterialSelect = useCallback((materialId: string) => {
     setSelection(prev => ({ ...prev, sacoMaterial: materialId }));
-    // For food-service, skip barrier and go to printing
-    if (isFoodService) {
-      setStep("saco-printing");
-    } else {
-      setStep("saco-barrier");
-    }
-  }, [isFoodService]);
+    setStep("saco-barrier");
+  }, []);
 
   const handleSacoBarrierSelect = useCallback((barrierId: string) => {
     setSelection(prev => ({ ...prev, sacoBarrier: barrierId }));
@@ -839,13 +834,8 @@ export function ProductSelector() {
 
   const handleSacoPrintingSelect = useCallback((printingId: string) => {
     setSelection(prev => ({ ...prev, sacoPrinting: printingId }));
-    // For food-service, go directly to confirmation
-    if (isFoodService) {
-      setStep("confirmation");
-    } else {
-      setStep("saco-application");
-    }
-  }, [isFoodService]);
+    setStep("saco-application");
+  }, []);
 
   const handleSacoApplicationSelect = useCallback((applicationId: string) => {
     setSelection(prev => ({ ...prev, sacoApplication: applicationId }));
