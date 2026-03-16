@@ -421,8 +421,8 @@ export const papelWrapApplicationOptions = [
 
 // Flow step definitions
 export type FlowStep = 
-  | "segment"
   | "product"
+  | "sub-product"
   // Bag steps
   | "bag-type"
   | "bag-paper-simple"

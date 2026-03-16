@@ -9,15 +9,8 @@ import {
   Tag,
   Scissors,
   Layers,
-  Shirt,
-  Footprints,
-  Gem,
-  Cookie,
   Utensils,
-  Pill,
-  Store,
   Sparkles,
-  Truck,
   Croissant,
   Square
 } from "lucide-react";
@@ -73,7 +66,7 @@ import {
   // Saco options
   sacoTypeOptions,
   sacoMaterialOptions,
-  sacoMaterialOptionsFoodService,
+  
   sacoBarrierOptions,
   sacoPrintingOptions,
   sacoApplicationOptions,
@@ -91,107 +84,57 @@ import {
   papelWrapApplicationOptions
 } from "./ProductFlowData";
 
-// Segments definition
-const segments = [
-  { id: "vestuario", label: "Vestuário", icon: Shirt },
-  { id: "calcados", label: "Calçados", icon: Footprints },
-  { id: "cosmeticos", label: "Cosméticos", icon: Sparkles },
-  { id: "joias-acessorios", label: "Jóias / Acessórios", icon: Gem },
-  { id: "alimentos", label: "Alimentos", icon: Cookie },
-  { id: "food-service", label: "Food Service", icon: Utensils },
-  { id: "farmacias", label: "Farmácias", icon: Pill },
-  { id: "supermercados", label: "Supermercados", icon: Store },
-  { id: "atacado-distribuidores", label: "Atacado/Distribuidores", icon: Truck }
+// Direct product categories
+const directProducts = [
+  { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
+  { id: "envelopes", label: "Envelopes", icon: FileText },
+  { id: "caixas", label: "Caixas", icon: Box },
+  { id: "itens-adicionais", label: "Itens Adicionais", icon: Tag },
+  { id: "sacos", label: "Sacos", icon: Package },
+  { id: "itens-adicionais-food", label: "Itens Adicionais para Food", icon: Utensils }
 ];
 
-// Products by segment
-const segmentProducts: Record<string, { id: string; label: string; icon: React.ComponentType<any> }[]> = {
-  vestuario: [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "envelopes", label: "Envelopes", icon: FileText },
-    { id: "papel-seda", label: "Papel de Seda", icon: Scissors },
-    { id: "etiquetas", label: "Etiquetas", icon: Tag },
-    { id: "tags", label: "Tags", icon: Tag }
-  ],
-  calcados: [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "papel-seda", label: "Papel de Seda", icon: Scissors },
-    { id: "etiquetas", label: "Etiquetas", icon: Tag },
-    { id: "tags", label: "Tags", icon: Tag }
-  ],
-  cosmeticos: [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "envelopes", label: "Envelopes", icon: FileText },
-    { id: "papel-seda", label: "Papel de Seda", icon: Scissors },
-    { id: "etiquetas", label: "Etiquetas", icon: Tag },
-    { id: "tags", label: "Tags", icon: Tag }
-  ],
-  "joias-acessorios": [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "envelopes", label: "Envelopes", icon: FileText }
-  ],
-  alimentos: [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "sacos", label: "Sacos", icon: Package },
-    { id: "papel-barreira", label: "Papel Barreira", icon: Layers },
-    { id: "etiquetas", label: "Etiquetas", icon: Tag }
-  ],
-  "food-service": [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "sacos", label: "Sacos", icon: Package },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "guardanapos", label: "Guardanapos", icon: Square },
-    { id: "papel-barreira", label: "Papel Barreira", icon: Layers },
-    { id: "papel-wrap", label: "Papel Wrap", icon: Croissant }
-  ],
-  farmacias: [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "sacos", label: "Sacos", icon: Package }
-  ],
-  supermercados: [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "sacos", label: "Sacos", icon: Package },
-    { id: "caixas", label: "Caixas", icon: Box }
-  ],
-  "atacado-distribuidores": [
-    { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
-    { id: "caixas", label: "Caixas", icon: Box },
-    { id: "envelopes", label: "Envelopes", icon: FileText },
-    { id: "etiquetas", label: "Etiquetas", icon: Tag },
-    { id: "tags", label: "Tags", icon: Tag },
-    { id: "papel-seda", label: "Papel de Seda", icon: Scissors }
-  ]
-};
+// Sub-products for "Itens Adicionais"
+const subProductsAdicionais = [
+  { id: "papel-seda", label: "Papel de Seda", icon: Scissors },
+  { id: "etiquetas", label: "Etiquetas", icon: Tag },
+  { id: "tags", label: "Tags", icon: Tag }
+];
+
+// Sub-products for "Itens Adicionais para Food"
+const subProductsFood = [
+  { id: "guardanapos", label: "Guardanapos", icon: Square },
+  { id: "papel-barreira", label: "Papel Barreira", icon: Layers },
+  { id: "papel-wrap", label: "Papel Wrap", icon: Croissant }
+];
 
 export function ProductSelector() {
   const navigate = useNavigate();
-  const [step, setStep] = useState<FlowStep>("segment");
+  const [step, setStep] = useState<FlowStep>("product");
   const [selection, setSelection] = useState<SelectionState>(initialSelectionState);
 
-  const currentProducts = selection.segment ? segmentProducts[selection.segment] || [] : [];
-
-  // Helper to check if in food-service segment
-  const isFoodService = selection.segment === "food-service";
+  // Helper to get the category label for a product
+  const getProductCategory = (productId: string | null) => {
+    if (!productId) return null;
+    if (subProductsAdicionais.find(p => p.id === productId)) return "itens-adicionais";
+    if (subProductsFood.find(p => p.id === productId)) return "itens-adicionais-food";
+    return null;
+  };
 
   // Reset functions for navigation
-  const handleBackToSegment = useCallback(() => {
+  const handleBackToProducts = useCallback(() => {
     setSelection(initialSelectionState);
-    setStep("segment");
+    setStep("product");
   }, []);
 
-  const handleBackToProduct = useCallback(() => {
+  const handleBackToSubProduct = useCallback(() => {
+    const category = getProductCategory(selection.product);
     setSelection(prev => ({
       ...initialSelectionState,
       segment: prev.segment
     }));
-    setStep("product");
-  }, []);
+    setStep("sub-product");
+  }, [selection.product]);
 
   // Back to bag type
   const handleBackToBagType = useCallback(() => {
@@ -550,14 +493,19 @@ export function ProductSelector() {
     setStep("papel-wrap-printing");
   }, []);
 
-  // Handle segment selection
-  const handleSegmentSelect = useCallback((segmentId: string) => {
-    setSelection(prev => ({ ...prev, segment: segmentId }));
-    setStep("product");
-  }, []);
-
-  // Handle product selection
+  // Handle direct product/category selection
   const handleProductSelect = useCallback((productId: string) => {
+    if (productId === "itens-adicionais") {
+      setSelection(prev => ({ ...prev, segment: "itens-adicionais" }));
+      setStep("sub-product");
+      return;
+    }
+    if (productId === "itens-adicionais-food") {
+      setSelection(prev => ({ ...prev, segment: "itens-adicionais-food" }));
+      setStep("sub-product");
+      return;
+    }
+    
     setSelection(prev => ({ ...prev, product: productId }));
     
     switch (productId) {
@@ -570,6 +518,19 @@ export function ProductSelector() {
       case "envelopes":
         setStep("envelope-type");
         break;
+      case "sacos":
+        setStep("saco-type");
+        break;
+      default:
+        setStep("confirmation");
+    }
+  }, []);
+
+  // Handle sub-product selection (from Itens Adicionais or Food)
+  const handleSubProductSelect = useCallback((productId: string) => {
+    setSelection(prev => ({ ...prev, product: productId }));
+    
+    switch (productId) {
       case "papel-seda":
         setStep("papel-seda-type");
         break;
@@ -579,14 +540,11 @@ export function ProductSelector() {
       case "tags":
         setStep("tag-type");
         break;
-      case "sacos":
-        setStep("saco-type");
+      case "guardanapos":
+        setStep("guardanapo-type");
         break;
       case "papel-barreira":
         setStep("papel-barreira-protection");
-        break;
-      case "guardanapos":
-        setStep("guardanapo-type");
         break;
       case "papel-wrap":
         setStep("papel-wrap-type");
@@ -859,13 +817,8 @@ export function ProductSelector() {
 
   const handleSacoMaterialSelect = useCallback((materialId: string) => {
     setSelection(prev => ({ ...prev, sacoMaterial: materialId }));
-    // For food-service, skip barrier and go to printing
-    if (isFoodService) {
-      setStep("saco-printing");
-    } else {
-      setStep("saco-barrier");
-    }
-  }, [isFoodService]);
+    setStep("saco-barrier");
+  }, []);
 
   const handleSacoBarrierSelect = useCallback((barrierId: string) => {
     setSelection(prev => ({ ...prev, sacoBarrier: barrierId }));
@@ -874,13 +827,8 @@ export function ProductSelector() {
 
   const handleSacoPrintingSelect = useCallback((printingId: string) => {
     setSelection(prev => ({ ...prev, sacoPrinting: printingId }));
-    // For food-service, go directly to confirmation
-    if (isFoodService) {
-      setStep("confirmation");
-    } else {
-      setStep("saco-application");
-    }
-  }, [isFoodService]);
+    setStep("saco-application");
+  }, []);
 
   const handleSacoApplicationSelect = useCallback((applicationId: string) => {
     setSelection(prev => ({ ...prev, sacoApplication: applicationId }));
@@ -945,13 +893,19 @@ export function ProductSelector() {
   // BUILD SUMMARY ITEMS
   // ========================
   const buildSummaryItems = useCallback(() => {
-    const items: { label: string; value: string | string[] }[] = [];
+     const items: { label: string; value: string | string[] }[] = [];
     
-    const segmentLabel = segments.find(s => s.id === selection.segment)?.label;
-    if (segmentLabel) items.push({ label: "Segmento", value: segmentLabel });
-
-    const productLabel = currentProducts.find(p => p.id === selection.product)?.label;
+    // Find product label from all possible sources
+    const allProducts = [...directProducts, ...subProductsAdicionais, ...subProductsFood];
+    const productLabel = allProducts.find(p => p.id === selection.product)?.label;
     if (productLabel) items.push({ label: "Produto", value: productLabel });
+
+    // Add category if from sub-products
+    if (selection.segment === "itens-adicionais") {
+      items.push({ label: "Categoria", value: "Itens Adicionais" });
+    } else if (selection.segment === "itens-adicionais-food") {
+      items.push({ label: "Categoria", value: "Itens Adicionais para Food" });
+    }
 
     // Bag summary
     if (selection.product === "sacolas") {
@@ -1096,22 +1050,17 @@ export function ProductSelector() {
       const typeLabel = sacoTypeOptions.find(t => t.id === selection.sacoType)?.label;
       if (typeLabel) items.push({ label: "Tipo de Saco", value: typeLabel });
 
-      const materialOptions = isFoodService ? sacoMaterialOptionsFoodService : sacoMaterialOptions;
-      const materialLabel = materialOptions.find(m => m.id === selection.sacoMaterial)?.label;
+      const materialLabel = sacoMaterialOptions.find(m => m.id === selection.sacoMaterial)?.label;
       if (materialLabel) items.push({ label: "Material", value: materialLabel });
 
-      if (!isFoodService) {
-        const barrierLabel = sacoBarrierOptions.find(b => b.id === selection.sacoBarrier)?.label;
-        if (barrierLabel) items.push({ label: "Proteção / Barreira", value: barrierLabel });
-      }
+      const barrierLabel = sacoBarrierOptions.find(b => b.id === selection.sacoBarrier)?.label;
+      if (barrierLabel) items.push({ label: "Proteção / Barreira", value: barrierLabel });
 
       const printingLabel = sacoPrintingOptions.find(p => p.id === selection.sacoPrinting)?.label;
       if (printingLabel) items.push({ label: "Impressão", value: printingLabel });
 
-      if (!isFoodService) {
-        const applicationLabel = sacoApplicationOptions.find(a => a.id === selection.sacoApplication)?.label;
-        if (applicationLabel) items.push({ label: "Aplicação", value: applicationLabel });
-      }
+      const applicationLabel = sacoApplicationOptions.find(a => a.id === selection.sacoApplication)?.label;
+      if (applicationLabel) items.push({ label: "Aplicação", value: applicationLabel });
     }
 
     // Papel barreira summary
@@ -1151,7 +1100,7 @@ export function ProductSelector() {
     }
 
     return items;
-  }, [selection, currentProducts, isFoodService]);
+  }, [selection]);
 
   // Submit to contact page
   const handleSubmit = useCallback(() => {
@@ -1172,23 +1121,28 @@ export function ProductSelector() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const currentStep = step as any;
     
-    // Always start with Segmentos
-    items.push({ label: "Segmentos", onClick: handleBackToSegment });
+    // Always start with Produtos
+    items.push({ label: "Produtos", onClick: handleBackToProducts });
 
-    // Add segment if selected
-    if (selection.segment) {
-      const segmentLabel = segments.find(s => s.id === selection.segment)?.label || "";
-      const isCurrentSegment = currentStep === "product" || !selection.product;
+    // Add category if from sub-products
+    if (selection.segment === "itens-adicionais" || selection.segment === "itens-adicionais-food") {
+      const categoryLabel = selection.segment === "itens-adicionais" ? "Itens Adicionais" : "Itens Adicionais para Food";
       items.push({ 
-        label: segmentLabel, 
-        onClick: selection.product ? handleBackToProduct : undefined,
-        isCurrent: isCurrentSegment && !selection.product
+        label: categoryLabel, 
+        onClick: selection.product ? handleBackToSubProduct : undefined,
+        isCurrent: !selection.product
       });
     }
 
     // Add product if selected
     if (selection.product) {
-      const productLabel = currentProducts.find(p => p.id === selection.product)?.label || "";
+      const allProducts = [...directProducts, ...subProductsAdicionais, ...subProductsFood];
+      const productLabel = allProducts.find(p => p.id === selection.product)?.label || "";
+      
+      // Determine the back handler for product
+      const backToProduct = (selection.segment === "itens-adicionais" || selection.segment === "itens-adicionais-food") 
+        ? handleBackToSubProduct 
+        : handleBackToProducts;
       
       // Determine if we need more items after product
       const hasMoreSteps = currentStep !== "bag-type" && currentStep !== "box-type" && currentStep !== "envelope-type" && 
@@ -1198,7 +1152,7 @@ export function ProductSelector() {
       
       items.push({ 
         label: productLabel, 
-        onClick: hasMoreSteps ? handleBackToProduct : undefined,
+        onClick: hasMoreSteps ? backToProduct : undefined,
         isCurrent: !hasMoreSteps
       });
     }
@@ -1464,18 +1418,17 @@ export function ProductSelector() {
       }
 
       if (selection.sacoMaterial) {
-        const materialOptions = isFoodService ? sacoMaterialOptionsFoodService : sacoMaterialOptions;
-        const materialLabel = materialOptions.find(m => m.id === selection.sacoMaterial)?.label || "";
+        const materialLabel = sacoMaterialOptions.find(m => m.id === selection.sacoMaterial)?.label || "";
         if (currentStep !== "saco-material") {
           items.push({
             label: materialLabel,
             onClick: currentStep !== "saco-barrier" && currentStep !== "saco-printing" ? handleBackToSacoMaterial : undefined,
-            isCurrent: (currentStep === "saco-barrier" || currentStep === "saco-printing") && !isFoodService
+            isCurrent: currentStep === "saco-barrier" || currentStep === "saco-printing"
           });
         }
       }
 
-      if (!isFoodService && selection.sacoBarrier) {
+      if (selection.sacoBarrier) {
         const barrierLabel = sacoBarrierOptions.find(b => b.id === selection.sacoBarrier)?.label || "";
         if (currentStep !== "saco-barrier" && currentStep !== "saco-material") {
           items.push({
@@ -1492,7 +1445,7 @@ export function ProductSelector() {
           items.push({
             label: `Impressão: ${printingLabel}`,
             onClick: currentStep !== "saco-application" ? handleBackToSacoPrinting : undefined,
-            isCurrent: currentStep === "saco-application" || (isFoodService && currentStep === "confirmation")
+            isCurrent: currentStep === "saco-application"
           });
         }
       }
@@ -1593,7 +1546,7 @@ export function ProductSelector() {
     }
 
     return items;
-  }, [selection, step, currentProducts, isFoodService, handleBackToSegment, handleBackToProduct, 
+  }, [selection, step, handleBackToProducts, handleBackToSubProduct, 
       handleBackToBagType, handleBackToBagFinishing, handleBackToBagPaper,
       handleBackToBoxType, handleBackToBoxStructure, handleBackToBoxPaper, handleBackToBoxFinishing,
       handleBackToEnvelopeType, handleBackToEnvelopeFormat, handleBackToEnvelopePaper, handleBackToEnvelopeFinishing,
@@ -1616,8 +1569,13 @@ export function ProductSelector() {
     if (selection.product === "papel-barreira") return Layers;
     if (selection.product === "guardanapos") return Square;
     if (selection.product === "papel-wrap") return Croissant;
-    if (selection.segment) {
-      return segments.find(s => s.id === selection.segment)?.icon || Package;
+    if (selection.segment === "itens-adicionais") {
+      const cat = directProducts.find(p => p.id === "itens-adicionais");
+      return cat?.icon || Tag;
+    }
+    if (selection.segment === "itens-adicionais-food") {
+      const cat = directProducts.find(p => p.id === "itens-adicionais-food");
+      return cat?.icon || Utensils;
     }
     return Package;
   };
@@ -1627,32 +1585,6 @@ export function ProductSelector() {
   // Render step content
   const renderStepContent = () => {
     switch (step) {
-      case "segment":
-        return (
-          <motion.div
-            key="segments"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            className="space-y-4"
-          >
-            <h3 className="text-xl font-heading font-semibold text-foreground">
-              Selecione o segmento:
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {segments.map((segment, index) => (
-                <SelectionCard
-                  key={segment.id}
-                  icon={segment.icon}
-                  label={segment.label}
-                  onClick={() => handleSegmentSelect(segment.id)}
-                  index={index}
-                />
-              ))}
-            </div>
-          </motion.div>
-        );
-
       case "product":
         return (
           <motion.div
@@ -1666,7 +1598,7 @@ export function ProductSelector() {
               Selecione o produto:
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {currentProducts.map((product, index) => (
+              {directProducts.map((product, index) => (
                 <SelectionCard
                   key={product.id}
                   icon={product.icon}
@@ -1678,6 +1610,36 @@ export function ProductSelector() {
             </div>
           </motion.div>
         );
+
+      case "sub-product":
+        {
+          const subProducts = selection.segment === "itens-adicionais" ? subProductsAdicionais : subProductsFood;
+          const categoryLabel = selection.segment === "itens-adicionais" ? "Itens Adicionais" : "Itens Adicionais para Food";
+          return (
+            <motion.div
+              key="sub-products"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              className="space-y-4"
+            >
+              <h3 className="text-xl font-heading font-semibold text-foreground">
+                {categoryLabel} — Selecione o produto:
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {subProducts.map((product, index) => (
+                  <SelectionCard
+                    key={product.id}
+                    icon={product.icon}
+                    label={product.label}
+                    onClick={() => handleSubProductSelect(product.id)}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          );
+        }
 
       // ========================
       // BAG STEPS
@@ -2660,7 +2622,7 @@ export function ProductSelector() {
               Qual material do saco?
             </h3>
             <div className="grid grid-cols-2 gap-4">
-              {(isFoodService ? sacoMaterialOptionsFoodService : sacoMaterialOptions).map((option, index) => (
+              {sacoMaterialOptions.map((option, index) => (
                 <SelectionCard
                   key={option.id}
                   label={option.label}
@@ -3010,10 +2972,10 @@ export function ProductSelector() {
             Monte seu Orçamento
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mt-4 mb-6">
-            Qual Produto Você Procura?
+            Qual produto você procura?
           </h2>
           <p className="text-lg text-muted-foreground">
-            Selecione o segmento, produto e especificações desejadas.
+            Selecione o produto e as especificações desejadas.
           </p>
         </motion.div>
 
@@ -3021,7 +2983,7 @@ export function ProductSelector() {
           {/* Selection Area */}
           <div className="space-y-4">
             {/* Breadcrumb */}
-            {step !== "segment" && (
+            {step !== "product" && (
               <FlowBreadcrumb items={buildBreadcrumbItems()} />
             )}
 
@@ -3048,10 +3010,10 @@ export function ProductSelector() {
               >
                 <CurrentIcon className="w-24 h-24 text-primary/30 mx-auto" />
                 <p className="text-muted-foreground mt-4">
-                  {step === "segment" && "Selecione um segmento para começar"}
-                  {step === "product" && "Selecione um produto"}
+                  {step === "product" && "Selecione um produto para começar"}
+                  {step === "sub-product" && "Selecione um produto"}
                   {step === "confirmation" && "Pronto para solicitar orçamento!"}
-                  {step !== "segment" && step !== "product" && step !== "confirmation" && "Configure as opções"}
+                  {step !== "product" && step !== "sub-product" && step !== "confirmation" && "Configure as opções"}
                 </p>
               </motion.div>
             </AnimatePresence>
