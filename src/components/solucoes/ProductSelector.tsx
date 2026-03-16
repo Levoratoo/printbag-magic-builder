@@ -1577,8 +1577,13 @@ export function ProductSelector() {
     if (selection.product === "papel-barreira") return Layers;
     if (selection.product === "guardanapos") return Square;
     if (selection.product === "papel-wrap") return Croissant;
-    if (selection.segment) {
-      return segments.find(s => s.id === selection.segment)?.icon || Package;
+    if (selection.segment === "itens-adicionais") {
+      const cat = directProducts.find(p => p.id === "itens-adicionais");
+      return cat?.icon || Tag;
+    }
+    if (selection.segment === "itens-adicionais-food") {
+      const cat = directProducts.find(p => p.id === "itens-adicionais-food");
+      return cat?.icon || Utensils;
     }
     return Package;
   };
