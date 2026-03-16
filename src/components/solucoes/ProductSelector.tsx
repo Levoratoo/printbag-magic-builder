@@ -12,12 +12,14 @@ import {
   Utensils,
   Sparkles,
   Croissant,
-  Square
+  Square,
+  CheckCircle2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SelectionCard } from "./SelectionCard";
 import { FlowBreadcrumb } from "./FlowBreadcrumb";
 import { FlowSummary } from "./FlowSummary";
+import { FlowLiveSummary } from "./FlowLiveSummary";
 import {
   FlowStep,
   SelectionState,
@@ -2961,10 +2963,23 @@ export function ProductSelector() {
       // ========================
       case "confirmation":
         return (
-          <FlowSummary 
-            items={buildSummaryItems()} 
-            onSubmit={handleSubmit}
-          />
+          <motion.div
+            key="confirmation"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className="space-y-6"
+          >
+            <div className="p-6 rounded-xl border border-primary/30 bg-primary/5 text-center">
+              <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-heading font-semibold text-foreground mb-2">
+                Seleção completa!
+              </h3>
+              <p className="text-muted-foreground">
+                Confira o resumo ao lado e clique em "Solicitar Orçamento" para enviar.
+              </p>
+            </div>
+          </motion.div>
         );
 
       default:
@@ -3006,30 +3021,17 @@ export function ProductSelector() {
             </AnimatePresence>
           </div>
 
-          {/* Preview Area */}
+          {/* Live Summary */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-muted rounded-2xl p-8 md:p-12 aspect-square flex items-center justify-center sticky top-32"
           >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={step}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="text-center"
-              >
-                <CurrentIcon className="w-24 h-24 text-primary/30 mx-auto" />
-                <p className="text-muted-foreground mt-4">
-                  {step === "product" && "Selecione um produto para começar"}
-                  {step === "sub-product" && "Selecione um produto"}
-                  {step === "confirmation" && "Pronto para solicitar orçamento!"}
-                  {step !== "product" && step !== "sub-product" && step !== "confirmation" && "Configure as opções"}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+            <FlowLiveSummary
+              items={buildSummaryItems()}
+              isComplete={step === "confirmation"}
+              onSubmit={handleSubmit}
+            />
           </motion.div>
         </div>
       </div>
