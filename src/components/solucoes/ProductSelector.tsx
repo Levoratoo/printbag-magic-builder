@@ -1057,22 +1057,18 @@ export function ProductSelector() {
       const typeLabel = sacoTypeOptions.find(t => t.id === selection.sacoType)?.label;
       if (typeLabel) items.push({ label: "Tipo de Saco", value: typeLabel });
 
-      const materialOptions = isFoodService ? sacoMaterialOptionsFoodService : sacoMaterialOptions;
-      const materialLabel = materialOptions.find(m => m.id === selection.sacoMaterial)?.label;
+      const materialLabel = sacoMaterialOptions.find(m => m.id === selection.sacoMaterial)?.label;
       if (materialLabel) items.push({ label: "Material", value: materialLabel });
 
-      if (!isFoodService) {
-        const barrierLabel = sacoBarrierOptions.find(b => b.id === selection.sacoBarrier)?.label;
-        if (barrierLabel) items.push({ label: "Proteção / Barreira", value: barrierLabel });
-      }
+      const barrierLabel = sacoBarrierOptions.find(b => b.id === selection.sacoBarrier)?.label;
+      if (barrierLabel) items.push({ label: "Proteção / Barreira", value: barrierLabel });
 
       const printingLabel = sacoPrintingOptions.find(p => p.id === selection.sacoPrinting)?.label;
       if (printingLabel) items.push({ label: "Impressão", value: printingLabel });
 
-      if (!isFoodService) {
-        const applicationLabel = sacoApplicationOptions.find(a => a.id === selection.sacoApplication)?.label;
-        if (applicationLabel) items.push({ label: "Aplicação", value: applicationLabel });
-      }
+      const applicationLabel = sacoApplicationOptions.find(a => a.id === selection.sacoApplication)?.label;
+      if (applicationLabel) items.push({ label: "Aplicação", value: applicationLabel });
+    }
     }
 
     // Papel barreira summary
