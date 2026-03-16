@@ -1647,7 +1647,6 @@ export function ProductSelector() {
             </motion.div>
           );
         }
-        );
 
       // ========================
       // BAG STEPS
