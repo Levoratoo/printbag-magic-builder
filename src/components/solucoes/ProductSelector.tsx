@@ -2131,6 +2131,7 @@ export function ProductSelector() {
               {envelopeTypeOptions.map((option, index) => (
                 <SelectionCard
                   key={option.id}
+                  image={option.id === "simples" ? productEnvelopePadrao : productEnvelopeEnobrecido}
                   label={option.label}
                   description={option.description}
                   onClick={() => handleEnvelopeTypeSelect(option.id)}
