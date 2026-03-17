@@ -1842,6 +1842,7 @@ export function ProductSelector() {
                   label={option.label}
                   description={option.description}
                   image={handleImages[option.id]}
+                  imageClassName={handleImageClasses[option.id]}
                   onClick={() => handleBagHandlePremiumSelect(option.id)}
                   index={index}
                 />
