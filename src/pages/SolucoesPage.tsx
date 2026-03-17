@@ -81,7 +81,8 @@ const finishes = [
   },
   {
     title: "Verniz Localizado",
-    description: "Aplicação de verniz em áreas específicas da embalagem."
+    description: "Aplicação de verniz em áreas específicas da embalagem.",
+    image: finishVernizLocalizado
   },
   {
     title: "Verniz Total",

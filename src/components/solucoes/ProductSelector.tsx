@@ -1797,6 +1797,7 @@ export function ProductSelector() {
                   key={option.id}
                   label={option.label}
                   description={option.description}
+                  image={bagFinishingImages[option.id]}
                   isSelected={selection.bagFinishing.includes(option.id)}
                   isMultiSelect
                   onClick={() => handleBagFinishingToggle(option.id)}
