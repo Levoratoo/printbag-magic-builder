@@ -100,7 +100,7 @@ import handleSintetica from "@/assets/handle-sintetica.jpg";
 
 // Direct product categories
 const directProducts = [
-  { id: "sacolas", label: "Sacolas", icon: ShoppingBag },
+  { id: "sacolas", label: "Sacolas", icon: ShoppingBag, image: productSacolas },
   { id: "envelopes", label: "Envelopes", icon: FileText },
   { id: "caixas", label: "Caixas", icon: Box },
   { id: "itens-adicionais", label: "Itens Adicionais", icon: Tag },
