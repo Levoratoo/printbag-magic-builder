@@ -106,6 +106,9 @@ import finishBagLaminacao from "@/assets/finish-bag-laminacao.jpg";
 import finishBagVernizLocalizado from "@/assets/finish-bag-verniz-localizado.jpg";
 import finishBagGofragem from "@/assets/finish-bag-gofragem.jpg";
 import finishBagImpressaoMetalizada from "@/assets/finish-bag-impressao-metalizada.jpg";
+import paperKraft from "@/assets/paper-kraft.jpg";
+import paperBranco from "@/assets/paper-branco.jpg";
+import paperCartao from "@/assets/paper-cartao.jpg";
 
 const bagFinishingImages: Record<string, string> = {
   "hot-stamping": finishBagHotStamping,
