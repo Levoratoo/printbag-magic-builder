@@ -19,6 +19,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import heroFactory from "@/assets/hero-factory.jpg";
+import seloFsc from "@/assets/selo-fsc.png";
+import seloEnergia from "@/assets/selo-energia-renovavel.png";
+import seloAbvtex from "@/assets/selo-abvtex.jpg";
 import sustainabilityHero from "@/assets/sustainability-hero.jpg";
 import cardPrintmoda from "@/assets/card-printmoda.jpg";
 import cardPrintfood from "@/assets/card-printfood.jpg";
@@ -69,8 +72,8 @@ const clients = [
 
 const stats = [
   { value: "40+", label: "Anos de Experiência" },
-  { value: "500+", label: "Clientes Atendidos" },
-  { value: "+10 mil", label: "Pontos de Venda Atendidos" },
+  { value: "500+", label: "Marcas Atendidas" },
+  { value: "+15 mil", label: "Pontos de Venda Atendidos" },
   { value: "+100M", label: "Embalagens/Ano" },
 ];
 
@@ -416,8 +419,8 @@ export default function HomePage() {
               transition={{ delay: 0.1 }}
               className="bg-card rounded-2xl p-6 shadow-medium border border-border hover:shadow-strong transition-shadow duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mb-5">
-                <TreePine className="w-7 h-7 text-secondary" />
+              <div className="w-20 h-20 flex items-center justify-center mb-5">
+                <img src={seloFsc} alt="Selo FSC" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-lg font-heading font-bold text-foreground mb-3">
                 Selo FSC
@@ -435,8 +438,8 @@ export default function HomePage() {
               transition={{ delay: 0.2 }}
               className="bg-card rounded-2xl p-6 shadow-medium border border-border hover:shadow-strong transition-shadow duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <Zap className="w-7 h-7 text-primary" />
+              <div className="w-20 h-20 flex items-center justify-center mb-5">
+                <img src={seloEnergia} alt="Selo Energia Renovável" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-lg font-heading font-bold text-foreground mb-3">
                 Selo Energia Renovável
@@ -454,8 +457,8 @@ export default function HomePage() {
               transition={{ delay: 0.3 }}
               className="bg-card rounded-2xl p-6 shadow-medium border border-border hover:shadow-strong transition-shadow duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mb-5">
-                <ShieldCheck className="w-7 h-7 text-secondary" />
+              <div className="w-20 h-20 flex items-center justify-center mb-5">
+                <img src={seloAbvtex} alt="Certificado ABVTEX" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-lg font-heading font-bold text-foreground mb-3">
                 Certificado ABVTEX
