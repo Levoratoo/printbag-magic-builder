@@ -107,6 +107,10 @@ const handleImages: Record<string, string> = {
   "sintetica": handleSintetica,
 };
 
+const handleImageClasses: Record<string, string> = {
+  "flat": "object-[center_30%]",
+};
+
 // Direct product categories
 const directProducts = [
   { id: "sacolas", label: "Sacolas", icon: ShoppingBag, image: productSacolas },
