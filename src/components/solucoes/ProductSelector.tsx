@@ -1830,12 +1830,13 @@ export function ProductSelector() {
             <h3 className="text-xl font-heading font-semibold text-foreground">
               Qual tipo de alça você prefere?
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {bagHandleOptionsPremium.map((option, index) => (
                 <SelectionCard
                   key={option.id}
                   label={option.label}
                   description={option.description}
+                  image={handleImages[option.id]}
                   onClick={() => handleBagHandlePremiumSelect(option.id)}
                   index={index}
                 />
