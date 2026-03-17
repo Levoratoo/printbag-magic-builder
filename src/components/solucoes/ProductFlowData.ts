@@ -71,12 +71,12 @@ export const bagFinishingOptions = [
 export const boxTypeOptions = [
   { 
     id: "simples", 
-    label: "Caixas simples",
+    label: "Caixa padrão",
     description: "Funcionais, econômicas e ideais para alto volume."
   },
   { 
     id: "enobrecidas", 
-    label: "Caixas enobrecidas",
+    label: "Caixa enobrecida",
     description: "Soluções premium para valorização da marca."
   }
 ];
