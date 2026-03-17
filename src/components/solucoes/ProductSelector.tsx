@@ -1615,7 +1615,8 @@ export function ProductSelector() {
               {directProducts.map((product, index) => (
                 <SelectionCard
                   key={product.id}
-                  icon={product.icon}
+                  icon={product.image ? undefined : product.icon}
+                  image={product.image}
                   label={product.label}
                   onClick={() => handleProductSelect(product.id)}
                   index={index}
