@@ -132,10 +132,10 @@ const handleImageClasses: Record<string, string> = {
 // Direct product categories
 const directProducts = [
   { id: "sacolas", label: "Sacolas", icon: ShoppingBag, image: productSacolas },
-  { id: "envelopes", label: "Envelopes", icon: FileText },
-  { id: "caixas", label: "Caixas", icon: Box },
+  { id: "envelopes", label: "Envelopes", icon: FileText, image: productEnvelopes },
+  { id: "caixas", label: "Caixas", icon: Box, image: productCaixas },
   { id: "itens-adicionais", label: "Itens Adicionais", icon: Tag },
-  { id: "sacos", label: "Sacos", icon: Package },
+  { id: "sacos", label: "Sacos", icon: Package, image: productSacos },
   { id: "itens-adicionais-food", label: "Itens Adicionais para Food", icon: Utensils }
 ];
 
