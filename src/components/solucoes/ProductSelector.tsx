@@ -2042,6 +2042,7 @@ export function ProductSelector() {
                 <SelectionCard
                   key={option.id}
                   label={option.label}
+                  image={bagFinishingImages[option.id]}
                   isSelected={selection.boxFinishing.includes(option.id)}
                   isMultiSelect
                   onClick={() => handleBoxFinishingToggle(option.id)}
@@ -2262,12 +2263,13 @@ export function ProductSelector() {
               Quais acabamentos você deseja?
             </h3>
             <p className="text-sm text-muted-foreground">Selecione um ou mais acabamentos</p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-3">
               {envelopeFinishingOptions.map((option, index) => (
                 <SelectionCard
                   key={option.id}
                   label={option.label}
                   description={option.description}
+                  image={bagFinishingImages[option.id]}
                   isSelected={selection.envelopeFinishing.includes(option.id)}
                   isMultiSelect
                   onClick={() => handleEnvelopeFinishingToggle(option.id)}
