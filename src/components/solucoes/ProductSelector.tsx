@@ -2042,6 +2042,7 @@ export function ProductSelector() {
                 <SelectionCard
                   key={option.id}
                   label={option.label}
+                  image={bagFinishingImages[option.id]}
                   isSelected={selection.boxFinishing.includes(option.id)}
                   isMultiSelect
                   onClick={() => handleBoxFinishingToggle(option.id)}
