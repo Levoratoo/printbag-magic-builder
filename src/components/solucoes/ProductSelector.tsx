@@ -117,6 +117,9 @@ import productItensAdicionais from "@/assets/product-itens-adicionais.jpg";
 import productItensFood from "@/assets/product-itens-food.jpg";
 import productSacoFundoQuadrado from "@/assets/product-saco-fundo-quadrado.jpg";
 import productSacoFundoV from "@/assets/product-saco-fundo-v.jpg";
+import productPapelSeda from "@/assets/product-papel-seda.jpg";
+import productEtiqueta from "@/assets/product-etiqueta.jpg";
+import productTag from "@/assets/product-tag.jpg";
 
 const bagFinishingImages: Record<string, string> = {
   "hot-stamping": finishBagHotStamping,
@@ -152,9 +155,9 @@ const directProducts = [
 
 // Sub-products for "Itens Adicionais"
 const subProductsAdicionais = [
-  { id: "papel-seda", label: "Papel de Seda", icon: Scissors },
-  { id: "etiquetas", label: "Etiquetas", icon: Tag },
-  { id: "tags", label: "Tags", icon: Tag }
+  { id: "papel-seda", label: "Papel de Seda", icon: Scissors, image: productPapelSeda },
+  { id: "etiquetas", label: "Etiquetas", icon: Tag, image: productEtiqueta },
+  { id: "tags", label: "Tags", icon: Tag, image: productTag }
 ];
 
 // Sub-products for "Itens Adicionais para Food"
@@ -1688,6 +1691,7 @@ export function ProductSelector() {
                   <SelectionCard
                     key={product.id}
                     icon={product.icon}
+                    image={(product as any).image}
                     label={product.label}
                     onClick={() => handleSubProductSelect(product.id)}
                     index={index}
