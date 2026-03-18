@@ -113,6 +113,10 @@ import productEnvelopePadrao from "@/assets/product-envelope-padrao.jpg";
 import productEnvelopeEnobrecido from "@/assets/product-envelope-enobrecido.jpg";
 import productCaixaPadrao from "@/assets/product-caixa-padrao.jpg";
 import productCaixaEnobrecida from "@/assets/product-caixa-enobrecida.jpg";
+import productItensAdicionais from "@/assets/product-itens-adicionais.jpg";
+import productItensFood from "@/assets/product-itens-food.jpg";
+import productSacoFundoQuadrado from "@/assets/product-saco-fundo-quadrado.jpg";
+import productSacoFundoV from "@/assets/product-saco-fundo-v.jpg";
 
 const bagFinishingImages: Record<string, string> = {
   "hot-stamping": finishBagHotStamping,
