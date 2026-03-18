@@ -1691,6 +1691,7 @@ export function ProductSelector() {
                   <SelectionCard
                     key={product.id}
                     icon={product.icon}
+                    image={(product as any).image}
                     label={product.label}
                     onClick={() => handleSubProductSelect(product.id)}
                     index={index}
