@@ -420,7 +420,7 @@ export default function HomePage() {
                 <img src={seloFsc} loading="lazy" alt="Selo FSC" className="max-h-full max-w-full object-contain" />
               </div>
               <h3 className="text-lg font-heading font-bold text-foreground mb-3">Selo FSC</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed text-justify">
+              <p className="text-muted-foreground text-sm leading-relaxed text-left">
                 Utilizamos matéria-prima certificada e originária de madeira de reflorestamento.
               </p>
             </motion.div>
