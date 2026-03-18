@@ -117,6 +117,9 @@ import productItensAdicionais from "@/assets/product-itens-adicionais.jpg";
 import productItensFood from "@/assets/product-itens-food.jpg";
 import productSacoFundoQuadrado from "@/assets/product-saco-fundo-quadrado.jpg";
 import productSacoFundoV from "@/assets/product-saco-fundo-v.jpg";
+import productPapelSeda from "@/assets/product-papel-seda.jpg";
+import productEtiqueta from "@/assets/product-etiqueta.jpg";
+import productTag from "@/assets/product-tag.jpg";
 
 const bagFinishingImages: Record<string, string> = {
   "hot-stamping": finishBagHotStamping,
