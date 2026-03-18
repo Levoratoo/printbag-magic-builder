@@ -155,9 +155,9 @@ const directProducts = [
 
 // Sub-products for "Itens Adicionais"
 const subProductsAdicionais = [
-  { id: "papel-seda", label: "Papel de Seda", icon: Scissors },
-  { id: "etiquetas", label: "Etiquetas", icon: Tag },
-  { id: "tags", label: "Tags", icon: Tag }
+  { id: "papel-seda", label: "Papel de Seda", icon: Scissors, image: productPapelSeda },
+  { id: "etiquetas", label: "Etiquetas", icon: Tag, image: productEtiqueta },
+  { id: "tags", label: "Tags", icon: Tag, image: productTag }
 ];
 
 // Sub-products for "Itens Adicionais para Food"
