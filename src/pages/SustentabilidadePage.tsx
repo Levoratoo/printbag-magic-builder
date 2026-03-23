@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import sustainabilityHero from "@/assets/sustainability-hero-bags.jpg";
-import seloFsc from "@/assets/selo-fsc.png";
+import seloFsc from "@/assets/selo-fsc-new.png";
 import seloEnergiaRenovavel from "@/assets/selo-energia-renovavel.png";
 import seloAbvtex from "@/assets/selo-abvtex.jpg";
 import seloTwoSides from "@/assets/selo-two-sides.png";
@@ -141,7 +141,7 @@ export default function SustentabilidadePage() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-secondary-foreground mb-6"
             >
-              A Única Grande Empresa de Sacolas do Brasil{" "}
+              Uma das Poucas Grandes Empresas de Sacolas do Brasil{" "}
               <span className="text-primary-foreground">100% Papel</span>
             </motion.h1>
             <motion.p
@@ -150,8 +150,8 @@ export default function SustentabilidadePage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-secondary-foreground/80"
             >
-              Somos a única entre as grandes fabricantes de sacolas do Brasil que 
-              trabalha exclusivamente com papel em todos os nossos produtos. Cada 
+              Somos uma grande fabricante de sacolas do Brasil que trabalha 
+              exclusivamente com papel em todos os nossos produtos. Cada 
               embalagem que produzimos é uma escolha consciente pelo futuro do planeta.
             </motion.p>
           </div>
