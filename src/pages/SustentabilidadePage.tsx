@@ -150,8 +150,8 @@ export default function SustentabilidadePage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-secondary-foreground/80"
             >
-              Somos a única entre as grandes fabricantes de sacolas do Brasil que 
-              trabalha exclusivamente com papel em todos os nossos produtos. Cada 
+              Somos uma grande fabricante de sacolas do Brasil que trabalha 
+              exclusivamente com papel em todos os nossos produtos. Cada 
               embalagem que produzimos é uma escolha consciente pelo futuro do planeta.
             </motion.p>
           </div>
