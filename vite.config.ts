@@ -7,8 +7,8 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   base: "/printbag-magic-builder/",
   server: {
-    host: "::",
-    port: 8080,
+    host: "192.168.1.104",
+    port: 3017,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
